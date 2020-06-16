@@ -53,7 +53,7 @@ def get_data_from_EPSList():
      return {"rank": rank.split(' '), "stockName": stockName.split(' '), "peRatio":peRatio.split(' '), "stockPrice" : stockPrice.split(' '), "eps_with4years": eps_with4years.split(' ')};
 
 def get_single_data_from_website(id):
-     
+      #fff
      # driver = webdriver.Chrome(executable_path="C:\\Users\\teres\\Desktop\\chromedriver.exe") #Use Chrome
       driver = get_Webdriver();
       driver.get("https://statementdog.com/analysis/tpe/"+ id);   
@@ -65,3 +65,4 @@ def get_single_data_from_website(id):
                "EPS" : driver.find_elements_by_class_name('v')[4].text,
                "ROE" : driver.find_elements_by_class_name('v')[5].text};
 
+ 
