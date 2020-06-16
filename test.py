@@ -54,7 +54,8 @@ def get_data_from_EPSList():
 
 def get_single_data_from_website(id):
       #fff
-     # driver = webdriver.Chrome(executable_path="C:\\Users\\teres\\Desktop\\chromedriver.exe") #Use Chrome
+      # driver = webdriver.Chrome(executable_path="C:\\Users\\teres\\Desktop\\chromedriver.exe") #Use Chrome
+      #test 
       driver = get_Webdriver();
       driver.get("https://statementdog.com/analysis/tpe/"+ id);   
       sleep(3);
