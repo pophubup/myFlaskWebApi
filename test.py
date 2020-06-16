@@ -50,7 +50,7 @@ def get_data_from_EPSList():
      stockPrice = d.find('li:eq(3)').text();
      eps_with4years = d.find('li:eq(4)').text();
      
-     return {"rank": rank.split(' '), "stockName": stockName, "peRatio":peRatio.split(' '), "stockPrice" : stockPrice.split(' '), "eps_with4years": eps_with4years.split(' ')};
+     return {"rank": rank.split(' '), "stockName": stockName.split(' '), "peRatio":peRatio.split(' '), "stockPrice" : stockPrice.split(' '), "eps_with4years": eps_with4years.split(' ')};
 
 def get_single_data_from_website(id):
      
