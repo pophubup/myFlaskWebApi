@@ -10,7 +10,7 @@ class DATOInforLoader():
         self.path = filepath
         self.totalpage = totalpage
 
-    def GetDataAsJson(self):
+    def __GetData(self):
         driver = webdriver.Edge(
             executable_path=r"C:\Users\Yohoo\Downloads\msedgedriver.exe")
         driver.maximize_window()
@@ -50,12 +50,19 @@ class DATOInforLoader():
             final1 = [{"項目": g + 1, "輸贏": isWin[g].text, "類型": Kind[g].text,
                        "結束時間": FinshTime[g].text, "遊玩時間": TotalHour[g].text} for g, v in enumerate(isWin)]
             gather2.insert(0, {"頁": 1, "結果": final1})
-            with open(self.path, 'w') as outfile:
-                json.dump(gather2, outfile, sort_keys=True, indent=4,
-                          ensure_ascii=False)
+        return gather2
+
+    def DataAsJsonData(self):
+        return json.dumps(self.__GetData())
+
+    def DataAsJsonPhysicalFile(self):
+        with open(self.path, 'w') as outfile:
+            json.dump(self.__GetData(), outfile, sort_keys=True, indent=4,
+                      ensure_ascii=False)
         return "finish"
 
 
 obj = DATOInforLoader(
     "c.y", r'C:\Users\Yohoo\OneDrive\桌面\myFlaskWebApi\Utility\data.json', 30)
-print(obj.GetDataAsJson())
+
+print(obj.DataAsJsonPhysicalFile())
